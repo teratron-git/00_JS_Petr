@@ -84,4 +84,37 @@ window.addEventListener("DOMContentLoaded", function() {
     }
 
     setClock("timer", deadline);
+
+    //Modal
+
+    let more = document.querySelector(".more"),
+        overlay = document.querySelector(".overlay"),
+        close = document.querySelector(".popup-close"),
+        description = document.querySelectorAll(".description-btn"),
+        descriptionBtn = document.querySelectorAll(".description-btn");
+
+
+
+    close.addEventListener("click", function() {
+        overlay.style.display = "none";
+        more.classList.remove("more-splash");
+        document.body.style.overflow = "";
+    });
+
+    for (let a = 0; a < description.length; a++) {
+        description[a].addEventListener("click", function(event) {
+            if (event.target && event.target.classList.contains("description-btn")) {
+                overlay.style.display = "block";
+                this.classList.add("more-splash");
+                document.body.style.overflow = "hidden";
+            }
+        });
+    }
+
+    more.addEventListener("click", function() {
+            overlay.style.display = "block";
+            this.classList.add("more-splash");
+            document.body.style.overflow = "hidden";
+    });
 });
+
