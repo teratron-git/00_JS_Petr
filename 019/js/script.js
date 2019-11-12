@@ -116,5 +116,6 @@ window.addEventListener("DOMContentLoaded", function() {
             this.classList.add("more-splash");
             document.body.style.overflow = "hidden";
     });
+
 });
 
