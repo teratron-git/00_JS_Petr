@@ -90,8 +90,9 @@ window.addEventListener("DOMContentLoaded", function() {
     let more = document.querySelector(".more"),
         overlay = document.querySelector(".overlay"),
         close = document.querySelector(".popup-close"),
-        description = document.querySelectorAll(".description-btn"),
-        descriptionBtn = document.querySelectorAll(".description-btn");
+        description = document.querySelectorAll(".description"),
+        descriptionBtn = document.querySelectorAll(".description-btn"),
+        about = document.querySelector("#about");
 
 
 
@@ -101,21 +102,15 @@ window.addEventListener("DOMContentLoaded", function() {
         document.body.style.overflow = "";
     });
 
-    for (let a = 0; a < description.length; a++) {
-        description[a].addEventListener("click", function(event) {
-            if (event.target && event.target.classList.contains("description-btn")) {
+
+        about.addEventListener("click", function(event) {
+            if (event.target && (event.target.classList.contains("description-btn") || event.target.classList.contains("more") )) {
                 overlay.style.display = "block";
                 this.classList.add("more-splash");
                 document.body.style.overflow = "hidden";
             }
         });
-    }
 
-    more.addEventListener("click", function() {
-            overlay.style.display = "block";
-            this.classList.add("more-splash");
-            document.body.style.overflow = "hidden";
-    });
 
     //Form
 
