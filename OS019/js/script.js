@@ -35,7 +35,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
     //Timer
 
-    let deadline = "2019-11-13";
+    let deadline = "2019-11-20";
 
     function getTimeRemaining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date()),
@@ -94,23 +94,19 @@ window.addEventListener("DOMContentLoaded", function() {
         descriptionBtn = document.querySelectorAll(".description-btn"),
         about = document.querySelector("#about");
 
-
-
     close.addEventListener("click", function() {
         overlay.style.display = "none";
         more.classList.remove("more-splash");
         document.body.style.overflow = "";
     });
 
-
-        about.addEventListener("click", function(event) {
-            if (event.target && (event.target.classList.contains("description-btn") || event.target.classList.contains("more") )) {
-                overlay.style.display = "block";
-                this.classList.add("more-splash");
-                document.body.style.overflow = "hidden";
-            }
-        });
-
+    about.addEventListener("click", function(event) {
+        if (event.target && (event.target.classList.contains("description-btn") || event.target.classList.contains("more") )) {
+            overlay.style.display = "block";
+            this.classList.add("more-splash");
+            document.body.style.overflow = "hidden";
+        }
+    });
 
     //Form
 
@@ -124,19 +120,18 @@ window.addEventListener("DOMContentLoaded", function() {
         input = form.getElementsByTagName("input"),
         statusMessage = document.createElement("div");
 
-        statusMessage.classList.add("status");
+    statusMessage.classList.add("status");
 
-        form.addEventListener("submit", function(event) {
-            event.preventDefault();
-            form.appendChild(statusMessage);
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        form.appendChild(statusMessage);
 
-            let request = new XMLHttpRequest();
-            request.open("POST", "server.php");
-            request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        let request = new XMLHttpRequest();
+        request.open("POST", "server.php");
+        request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 
-            let formData = new FormData(form);
-            request.send(formData);
-        });
+        let formData = new FormData(form);
+        request.send(formData);
+    });
 
 });
-
