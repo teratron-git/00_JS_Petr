@@ -19,4 +19,4 @@ inputRub.addEventListener('input', () => {
         }
     });
 
-});
+}); 
